@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#334155" />
   <link href="output.css" rel="stylesheet">
   <meta name="description" content="Alireza Ahmand personal website">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -41,7 +42,8 @@
     <img class="w-52 h-52 rounded-full mx-auto md:w-80 md:h-80 hover:grayscale" src="images/ahmand.jpg" alt=""
       width="512" height="512">
     <p class="dark:text-stone-400 font-['Vazirmatn'] text-center mt-5 text-xl">Alireza Ah-Mand</p>
-    <p class="text-gray-800 dark:text-stone-200 font-['Vazirmatn'] text-center mt-1">A 23 Years Old Boy From
+    <p class="text-gray-800 dark:text-stone-200 font-['Vazirmatn'] text-center mt-1">A <span id="age"></span> Years Old
+      Boy From
       North of Iran
       Skilled As PHP, Python Programmer & Senior Android
       Developer<br>Interested in GNU Linux Distributions such ArchLinux and Application Cracking.</p>
@@ -78,13 +80,15 @@
       <h1 class="font-['Vazirmatn'] text-lg"><i class="fa-solid fa-circle-info"></i> Educations</h1>
       <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2020 - Now</b><br>Bachelor's student in
         computer engineering at Payame Nour University of Babol.</p>
-      <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2017 - 2020</b><br>Student of Experimental Science in Shahid
+      <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2017 - 2020</b><br>Student of Experimental Science in
+        Shahid
         Beheshti
         High School in Babolsar.</p>
       <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2014 - 2017</b><br>Student at Nabi Akram School in Dughi
         Kola.
       </p>
-      <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2008 - 2014</b><br>Student at Imam Ali school in Dughi Kola.
+      <p class="dark:text-stone-200 font-['Vazirmatn']"><b>2008 - 2014</b><br>Student at Imam Ali school in Dughi
+        Kola.
       </p>
     </div>
   </div>
@@ -94,6 +98,17 @@
         class="hover:underline">Incognito Coder</a>. Designed By <i class="fa-solid fa-heart text-red-600"></i>
     </span>
   </footer>
+  <script>
+    function calculateAge(birthDate) {
+      const today = new Date();
+      const birth = new Date(birthDate);
+      let age = today.getFullYear() - birth.getFullYear();
+      const monthDifference = today.getMonth() - birth.getMonth();
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) { age--; } return age;
+    }
+    const age = calculateAge("2001-11-04");
+    document.getElementById('age').textContent = age;
+  </script>
 </body>
 <script>
   var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
